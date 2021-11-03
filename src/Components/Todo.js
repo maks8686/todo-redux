@@ -8,6 +8,6 @@ export function Todo(todo){
   <div key={todo.id}>
     {todo.text}
   
-  <button onClick={()=>dispatch(removeTodo(todo.id))}>X</button>
+  <button onClick={()=>dispatch({type:"REMOVE_TODO",payload:todo.id})}>X</button>
   </div>)
 }

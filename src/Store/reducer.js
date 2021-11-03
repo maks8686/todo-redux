@@ -1,20 +1,17 @@
-import { nanoid } from "@reduxjs/toolkit";
 
+export const startState=[]
 
-
-
-
-export const todos = (state = [], action) => {
+export const todos = (state =startState, action) => {
   switch (action.type) {
     case "ADD_TODO":
       return [
         ...state,
         {
-          id: nanoid(),
+          id: action.id,
           text: action.text,
           complete: false,
-        }
-      ],console.log(state);
+        },console.log(state)
+      ];
     case "REMOVE_TODO":
       return state.filter((todo) => todo.id !== action.id);
 

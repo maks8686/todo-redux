@@ -1,4 +1,3 @@
 import { createStore } from "redux";
 import { todos } from "./reducer";
-export const store = createStore(todos)
-console.log(store)
+export const store = createStore(todos);
