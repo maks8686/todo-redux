@@ -1,4 +1,7 @@
-export const todoReducer = (state = {todos:[], flag:"SHOW_ALL"}, action) => {
+export const todoReducer = (
+  state = { todos: [], flag: "SHOW_ALL" },
+  action
+) => {
   switch (action.type) {
     case "ADD_TODO":
       return [
@@ -17,13 +20,13 @@ export const todoReducer = (state = {todos:[], flag:"SHOW_ALL"}, action) => {
       return state.todos.map((todo) =>
         todo.id === action.id ? { ...todo, complete: !todo.complete } : todo
       );
-      case "SORT_DONE_TODO":
-        return state.flag="SORT_DONE_TODO"
+    case "SORT_DONE_TODO":
+      return (state.flag = "SORT_DONE_TODO");
 
-      case "SORT_NOT_DONE_TODO":
-        return state.flag="SORT_NOT_DONE_TODO"
+    case "SORT_NOT_DONE_TODO":
+      return (state.flag = "SORT_NOT_DONE_TODO");
 
-      default:
-        return state.todos
+    default:
+      return state.todos;
   }
 };
