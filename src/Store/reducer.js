@@ -1,25 +1,29 @@
-
-export const startState=[]
-
-export const todos = (state =startState, action) => {
+export const todoReducer = (state = {todos:[], flag:"SHOW_ALL"}, action) => {
   switch (action.type) {
     case "ADD_TODO":
       return [
-        ...state,
+        ...state.todos,
         {
           id: action.id,
           text: action.text,
           complete: false,
-        },console.log(state)
+        },
       ];
+
     case "REMOVE_TODO":
-      return state.filter((todo) => todo.id !== action.id);
+      return state.todos.filter((todo) => todo.id !== action.id);
 
     case "TOGGLE_TODO":
-      return state.map((todo) =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      return state.todos.map((todo) =>
+        todo.id === action.id ? { ...todo, complete: !todo.complete } : todo
       );
-    default:
-      return state;
+      case "SORT_DONE_TODO":
+        return state.flag="SORT_DONE_TODO"
+
+      case "SORT_NOT_DONE_TODO":
+        return state.flag="SORT_NOT_DONE_TODO"
+
+      default:
+        return state.todos
   }
 };

@@ -1,17 +1,19 @@
 import React from "react";
 import "./App.css";
-import { Input } from "./Components/Input";
-import { TodoList } from "./Components/TodoList";
+import { Input } from "./Components/Input/Input";
+import { TodoList } from "./Components/Todolist/TodoList";
+import { Typography } from "@mui/material";
+import { SortButtons } from "./Components/SortButtons/SortButtons";
 
 function App() {
   return (
-    <div>
-      <span>
+    <div className="App">
+      <Typography textAlign="center">
         <h1>Todo Redux</h1>
-      </span>
+      </Typography>
       <Input />
       <TodoList />
-      <div></div>
+      <SortButtons/>
     </div>
   );
 }
