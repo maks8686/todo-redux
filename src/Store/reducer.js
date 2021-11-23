@@ -6,7 +6,6 @@ import {
   SORT_NOT_DONE_TODO,
 } from "./constants";
 
-
 export const todoReducer = (
   state = { todos: [], flag: "SHOW_ALL" },
   action

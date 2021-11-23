@@ -6,7 +6,7 @@ import { SORT_DONE_TODO, SORT_NOT_DONE_TODO } from "../../Store/constants";
 export const TodoList = () => {
   const todoArr = useSelector((state) => state.todos);
   const sortFlag = useSelector((state) => state.flag);
-  console.log(todoArr);
+  
 
   const sortTodoArr = (todoArr, sortFlag) => {
     switch (sortFlag) {

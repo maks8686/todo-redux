@@ -8,12 +8,12 @@ import { SortButtons } from "./Components/SortButtons/SortButtons";
 function App() {
   return (
     <div className="App">
-      <Typography textAlign="center">
-        <h1>Todo Redux</h1>
+      <Typography textAlign="center" variant="h2">
+        Todo Redux
       </Typography>
       <Input />
       <TodoList />
-      <SortButtons/>
+      <SortButtons />
     </div>
   );
 }
