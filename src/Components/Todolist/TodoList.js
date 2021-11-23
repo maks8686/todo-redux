@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Todo } from "../Todo/Todo";
 import { StyledTodoList } from "./TodoList.styles";
+import { SORT_DONE_TODO, SORT_NOT_DONE_TODO } from "../../Store/constants";
 
 export const TodoList = () => {
   const todoArr = useSelector((state) => state.todos);
@@ -9,10 +10,10 @@ export const TodoList = () => {
 
   const sortTodoArr = (todoArr, sortFlag) => {
     switch (sortFlag) {
-      case "SORT_DONE_TODO":
+      case SORT_DONE_TODO:
         return todoArr.filter((todo) => todo.complete);
 
-      case "SORT_NOT_DONE_TODO":
+      case SORT_NOT_DONE_TODO:
         return todoArr.filter((todo) => !todo.complete);
 
       default:
