@@ -6,8 +6,15 @@ import {
   SORT_NOT_DONE_TODO,
 } from "./constants";
 
+const InitialState =
+localStorage.length ? {todos:JSON.parse(localStorage.savedStateTodos), flag:"SHOW_ALL"} :
+{ todos: [], flag: "SHOW_ALL" }
+
+const setFlag = (state, action) => {
+  return { ...state, flag: action.type };
+};
 export const todoReducer = (
-  state = { todos: [], flag: "SHOW_ALL" },
+  state = InitialState,
   action
 ) => {
   switch (action.type) {
@@ -33,12 +40,12 @@ export const todoReducer = (
         ),
       };
     case SORT_DONE_TODO:
-      return { ...state, flag: action.type };
+      return setFlag(state,action);
 
     case SORT_NOT_DONE_TODO:
-      return { ...state, flag: action.type };
+      return setFlag(state,action);
 
     default:
-      return { ...state, flag: action.type };
+      return setFlag(state,action);
   }
 };

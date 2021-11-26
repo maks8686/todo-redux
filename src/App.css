@@ -1,7 +1,9 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  width: 700px;
-  position: relative;
+  margin: 0,auto;
+  width: 60%;
 }
 
 .App-logo {

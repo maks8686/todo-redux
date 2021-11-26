@@ -15,13 +15,12 @@ export const Input = () => {
 
   const handleSubmit = (e) => {
     if (userInput) {
-      e.preventDefault();
       dispatch(addTodo(userInput));
       setUserInput("");
     }
   };
   const onKeyPress = (e) => {
-    if (e.code === "Enter") {
+    if (e.key === "Enter") {
       handleSubmit(e);
     }
   };

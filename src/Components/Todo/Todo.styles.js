@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const StyledTodo = styled.div`
   display: flex;
-  width: 700px;
-  position: relative;
+  width: 100% ;
+  position: center;
   align-items: center;
+  align-self: stretch;
   justify-content: space-between;
   margin-left: 10px;
   margin-top: 5px;

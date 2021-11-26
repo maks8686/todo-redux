@@ -2,10 +2,12 @@ import { useSelector } from "react-redux";
 import { Todo } from "../Todo/Todo";
 import { StyledTodoList } from "./TodoList.styles";
 import { SORT_DONE_TODO, SORT_NOT_DONE_TODO } from "../../Store/constants";
+import { useEffect } from "react";
 
 export const TodoList = () => {
   const todoArr = useSelector((state) => state.todos);
   const sortFlag = useSelector((state) => state.flag);
+  useEffect(()=>{localStorage.setItem("savedStateTodos",JSON.stringify(todoArr))})
   
 
   const sortTodoArr = (todoArr, sortFlag) => {
@@ -23,7 +25,7 @@ export const TodoList = () => {
   const sortArr = sortTodoArr(todoArr, sortFlag);
   return (
     <StyledTodoList>
-      <div>
+      
         {sortArr.map((todo) => (
           <Todo
             key={todo.id}
@@ -32,7 +34,7 @@ export const TodoList = () => {
             complete={todo.complete}
           />
         ))}
-      </div>
+      
     </StyledTodoList>
   );
 };

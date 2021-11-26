@@ -8,7 +8,7 @@ import { SortButtons } from "./Components/SortButtons/SortButtons";
 function App() {
   return (
     <div className="App">
-      <Typography textAlign="center" variant="h2">
+      <Typography textAlign="center" variant="h3">
         Todo Redux
       </Typography>
       <Input />
