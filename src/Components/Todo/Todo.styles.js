@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledTodo = styled.div`
   display: flex;
-  width: 100% ;
   position: center;
   align-items: center;
   align-self: stretch;
