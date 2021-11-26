@@ -20,6 +20,11 @@ export const Input = () => {
       setUserInput("");
     }
   };
+  const onKeyPress = (e) => {
+    if (e.code === "Enter") {
+      handleSubmit(e);
+    }
+  };
 
   return (
     <StyledInput>
@@ -30,6 +35,7 @@ export const Input = () => {
         variant="standard"
         value={userInput}
         onChange={handleChange}
+        onKeyPress={onKeyPress}
       />
       <Button variant="contained" onClick={handleSubmit}>
         Добавить
