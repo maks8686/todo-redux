@@ -36,7 +36,7 @@ export const Input = () => {
         onChange={handleChange}
         onKeyPress={onKeyPress}
       />
-      <Button variant="contained" onClick={handleSubmit}>
+      <Button size="small" variant="contained" onClick={handleSubmit}>
         Добавить
       </Button>
     </StyledInput>

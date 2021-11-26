@@ -12,13 +12,13 @@ export const SortButtons = () => {
 
   return (
     <StyledSortDiv>
-      <Button variant="contained" onClick={() => dispatch(sortDoneTodo())}>
+      <Button size="small" variant="contained" onClick={() => dispatch(sortDoneTodo())}>
         Выполненные
       </Button>
-      <Button variant="contained" onClick={() => dispatch(sortNotDoneTodo())}>
+      <Button size="small" variant="contained" onClick={() => dispatch(sortNotDoneTodo())}>
         В процессе
       </Button>
-      <Button variant="contained" onClick={() => dispatch(showAllTodos())}>
+      <Button size="small" variant="contained" onClick={() => dispatch(showAllTodos())}>
         Все
       </Button>
     </StyledSortDiv>
