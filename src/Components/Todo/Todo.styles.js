@@ -11,4 +11,5 @@ export const StyledTodo = styled.div`
   padding-left: 15px;
   border: 1px solid grey;
   border-radius: 20px;
+  word-break: break-all;
 `;

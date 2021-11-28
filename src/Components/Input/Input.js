@@ -14,7 +14,7 @@ export const Input = () => {
   };
 
   const handleSubmit = (e) => {
-    if (userInput) {
+    if (userInput.trim()) {
       dispatch(addTodo(userInput));
       setUserInput("");
     }
