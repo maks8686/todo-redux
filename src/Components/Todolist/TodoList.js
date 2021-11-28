@@ -8,7 +8,7 @@ export const TodoList = () => {
   const todoArr = useSelector((state) => state.todos);
   const sortFlag = useSelector((state) => state.flag);
   useEffect(()=>{localStorage.setItem("savedStateTodos",JSON.stringify(todoArr))})
-  
+  useEffect(()=>{localStorage.setItem("savedFlag",JSON.stringify(sortFlag))})
 
   const sortTodoArr = (todoArr, sortFlag) => {
     switch (sortFlag) {
