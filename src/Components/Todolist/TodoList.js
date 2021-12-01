@@ -7,8 +7,12 @@ import { useEffect } from "react";
 export const TodoList = () => {
   const todoArr = useSelector((state) => state.todos);
   const sortFlag = useSelector((state) => state.flag);
-  useEffect(()=>{localStorage.setItem("savedStateTodos",JSON.stringify(todoArr))})
-  useEffect(()=>{localStorage.setItem("savedFlag",JSON.stringify(sortFlag))})
+  useEffect(() => {
+    localStorage.setItem("savedStateTodos", JSON.stringify(todoArr));
+  });
+  useEffect(() => {
+    localStorage.setItem("savedFlag", JSON.stringify(sortFlag));
+  });
 
   const sortTodoArr = (todoArr, sortFlag) => {
     switch (sortFlag) {
@@ -25,16 +29,14 @@ export const TodoList = () => {
   const sortArr = sortTodoArr(todoArr, sortFlag);
   return (
     <StyledTodoList>
-      
-        {sortArr.map((todo) => (
-          <Todo
-            key={todo.id}
-            id={todo.id}
-            text={todo.text}
-            complete={todo.complete}
-          />
-        ))}
-      
+      {sortArr.map((todo) => (
+        <Todo
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          complete={todo.complete}
+        />
+      ))}
     </StyledTodoList>
   );
 };
