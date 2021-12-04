@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../../Store/action";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import { StyledInput } from "./Input.styles";
+import { StyledInput } from "./input.styled";
 
 export const Input = () => {
   const dispatch = useDispatch();

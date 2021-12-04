@@ -5,15 +5,11 @@ import {
   sortDoneTodo,
   sortNotDoneTodo,
 } from "../../Store/action";
-import { StyledSortDiv } from "./SortButtons.styled";
+import { StyledSortDiv } from "./sortButtons.styled";
 
 export const SortButtons = () => {
   const flag = useSelector((state) => state.flag);
   const dispatch = useDispatch();
-
-  const handleClick = (act) => {
-    return dispatch(act);
-  };
 
   return (
     <StyledSortDiv>
@@ -21,7 +17,7 @@ export const SortButtons = () => {
         size="small"
         variant="contained"
         color={flag === "SORT_DONE_TODO" ? "success" : "primary"}
-        onClick={() => handleClick(sortDoneTodo())}
+        onClick={() => dispatch(sortDoneTodo())}
       >
         Выполненные
       </Button>
@@ -29,7 +25,7 @@ export const SortButtons = () => {
         size="small"
         variant="contained"
         color={flag === "SORT_NOT_DONE_TODO" ? "success" : "primary"}
-        onClick={() => handleClick(sortNotDoneTodo())}
+        onClick={() => dispatch(sortNotDoneTodo())}
       >
         В процессе
       </Button>
@@ -37,7 +33,7 @@ export const SortButtons = () => {
         size="small"
         variant="contained"
         color={flag === "SHOW_ALL" ? "success" : "primary"}
-        onClick={() => handleClick(showAllTodos())}
+        onClick={() => dispatch(showAllTodos())}
       >
         Все
       </Button>

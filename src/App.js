@@ -1,9 +1,9 @@
 import React from "react";
 import { StyledApp } from "./App.styled.js";
-import { Input } from "./Components/Input/Input";
-import { TodoList } from "./Components/Todolist/TodoList";
+import { Input } from "./components/inputTodo/input";
+import { TodoList } from "./components/todoList/todoList";
 import { Typography } from "@mui/material";
-import { SortButtons } from "./Components/SortButtons/SortButtons";
+import { SortButtons } from "./components/sortButtons/sortButtons";
 
 function App() {
   return (

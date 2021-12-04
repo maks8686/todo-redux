@@ -2,9 +2,9 @@ import { IconButton } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { removeTodo, toggleTodo } from "../../Store/action";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { StyledTodo } from "./Todo.styles";
+import { StyledTodo } from "./todo.styled";
 
-export function Todo({ id, text, complete }) {
+export const Todo = ({ id, text, complete }) => {
   const dispatch = useDispatch();
   return (
     <StyledTodo
@@ -21,4 +21,4 @@ export function Todo({ id, text, complete }) {
       </IconButton>
     </StyledTodo>
   );
-}
+};

@@ -4,11 +4,12 @@ import {
   REMOVE_TODO,
   SORT_DONE_TODO,
   SORT_NOT_DONE_TODO,
+  SHOW_ALL,
 } from "./constants";
 
 const InitialState = localStorage.length
   ? { todos: JSON.parse(localStorage.savedStateTodos), flag: "SHOW_ALL" }
-  : { todos: [], flag: "SHOW_ALL" };
+  : { todos: [], sortedTodos: [], flag: "SHOW_ALL" };
 
 const addTodo = (state, action) => {
   return {
@@ -21,6 +22,14 @@ const addTodo = (state, action) => {
       },
     ],
     flag: state.flag,
+    sortedTodos: [
+      ...state.todos,
+      {
+        id: action.id,
+        text: action.text,
+        complete: false,
+      },
+    ],
   };
 };
 
@@ -28,6 +37,7 @@ const removeTodo = (state, action) => {
   return {
     todos: state.todos.filter((todo) => todo.id !== action.id),
     flag: state.flag,
+    sortedTodos: state.todos.filter((todo) => todo.id !== action.id),
   };
 };
 
@@ -37,12 +47,12 @@ const toggleTodo = (state, action) => {
       todo.id === action.id ? { ...todo, complete: !todo.complete } : todo
     ),
     flag: state.flag,
+    sortedTodos: state.todos.map((todo) =>
+      todo.id === action.id ? { ...todo, complete: !todo.complete } : todo
+    ),
   };
 };
 
-const setFlag = (state, action) => {
-  return { ...state, flag: action.type };
-};
 export const todoReducer = (state = InitialState, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -50,17 +60,31 @@ export const todoReducer = (state = InitialState, action) => {
 
     case REMOVE_TODO:
       return removeTodo(state, action);
-
     case TOGGLE_TODO:
       return toggleTodo(state, action);
 
     case SORT_DONE_TODO:
-      return setFlag(state, action);
+      return {
+        ...state,
+        flag: action.type,
+        sortedTodos: [...state.todos.filter((todo) => todo.complete)],
+      };
 
     case SORT_NOT_DONE_TODO:
-      return setFlag(state, action);
+      return {
+        ...state,
+        sortedTodos: [...state.todos.filter((todo) => !todo.complete)],
+        flag: action.type,
+      };
+
+    case SHOW_ALL:
+      return {
+        ...state,
+        sortedTodos: [...state.todos.map((todo) => todo)],
+        flag: action.type,
+      };
 
     default:
-      return setFlag(state, action);
+      return state;
   }
 };
