@@ -8,7 +8,11 @@ import {
 } from "./constants";
 
 const InitialState = localStorage.length
-  ? { todos: JSON.parse(localStorage.savedStateTodos), flag: "SHOW_ALL" }
+  ? {
+      todos: JSON.parse(localStorage.savedStateTodos),
+      sortedTodos: JSON.parse(localStorage.savedStateTodos),
+      flag: "SHOW_ALL",
+    }
   : { todos: [], sortedTodos: [], flag: "SHOW_ALL" };
 
 const addTodo = (state, action) => {
