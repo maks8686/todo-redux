@@ -7,7 +7,7 @@ import {
   SHOW_ALL,
 } from "./constants";
 
-const InitialState = localStorage.length
+const InitialState = localStorage.length||localStorage.sortedTodos
   ? {
       todos: JSON.parse(localStorage.savedStateTodos),
       sortedTodos: JSON.parse(localStorage.savedStateTodos),
