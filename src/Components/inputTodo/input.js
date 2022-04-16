@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { StyledInput } from "./input.styled";
 
+
 export const Input = () => {
   const dispatch = useDispatch();
   const [userInput, setUserInput] = useState("");
@@ -26,15 +27,16 @@ export const Input = () => {
   };
 
   return (
-    <StyledInput>
+    <StyledInput  >
       <TextField
-        sx={{ width: "70%" }}
+        sx={{ width: "70%"}}
         id="standard-basic"
-        label="Введи задачу"
+        placeholder="Введи задачу"
         variant="standard"
         value={userInput}
         onChange={handleChange}
         onKeyPress={onKeyPress}
+        
       />
       <Button size="small" variant="contained" onClick={handleSubmit}>
         Добавить

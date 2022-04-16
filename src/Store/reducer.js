@@ -5,13 +5,15 @@ import {
   SORT_DONE_TODO,
   SORT_NOT_DONE_TODO,
   SHOW_ALL,
+  FIX_TODO
 } from "./constants";
 
 const InitialState = localStorage.length||localStorage.sortedTodos
   ? {
       todos: JSON.parse(localStorage.savedStateTodos),
       sortedTodos: JSON.parse(localStorage.savedStateTodos),
-      flag: "SHOW_ALL",
+      flag: "SHOW_ALL"
+      
     }
   : { todos: [], sortedTodos: [], flag: "SHOW_ALL" };
 
@@ -45,6 +47,21 @@ const removeTodo = (state, action) => {
   };
 };
 
+const fixTodo = (state, action) => {
+
+  return {
+    todos: state.todos.map((todo) =>
+      todo.id === action.id ? { ...todo, text: action.text} : todo
+      
+    ),
+    flag: state.flag,
+    sortedTodos: state.todos.map((todo) =>
+      todo.id === action.id ? { ...todo, text: action.text } : todo
+    ),
+    
+  };
+};
+
 const toggleTodo = (state, action) => {
   return {
     todos: state.todos.map((todo) =>
@@ -61,7 +78,8 @@ export const todoReducer = (state = InitialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return addTodo(state, action);
-
+    case FIX_TODO:
+        return fixTodo(state, action);
     case REMOVE_TODO:
       return removeTodo(state, action);
     case TOGGLE_TODO:

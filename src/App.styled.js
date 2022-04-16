@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const StyledApp = styled.div`
+
+export const StyledApp= styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: auto;
+  margin: 0, auto;
   justify-content: center;
   max-width: 700px;
 `;

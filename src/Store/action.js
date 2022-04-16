@@ -6,6 +6,7 @@ import {
   SORT_DONE_TODO,
   SORT_NOT_DONE_TODO,
   SHOW_ALL,
+  FIX_TODO
 } from "./constants";
 
 
@@ -18,6 +19,11 @@ export const addTodo = (userInput) => ({
 export const toggleTodo = (id) => ({
   type: TOGGLE_TODO,
   id,
+});
+export const fixTodo = (id,fixText) => ({
+  type: FIX_TODO,
+  id,
+  text: fixText,
 });
 export const removeTodo = (id) => ({
   type: REMOVE_TODO,
